@@ -1,4 +1,4 @@
-import { getUsers } from "../storages/userStorage"; 
+import { getUsers } from "../storages/userStorage.js"; 
 
 export const userListGet = (req, res) => {
   const users = getUsers();

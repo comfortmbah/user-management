@@ -28,5 +28,8 @@ export const addUser = ({ firstName, lastName }) => {
     id,
     firstName,
     lastName,
+    email,
+    age,
+    bio,
   });
 }

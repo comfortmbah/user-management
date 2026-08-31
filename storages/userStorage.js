@@ -14,3 +14,13 @@ const users = [
 export const getUsers = () => {
   return users;
 }
+
+export const addUser = ({ firstName, lastName }) => {
+  const id = users.length + 1;
+
+  users.push({
+    id,
+    firstName,
+    lastName,
+  });
+}

@@ -8,3 +8,9 @@ export const userListGet = (req, res) => {
     users
   });
 }
+
+export const usersCreateGet = (req, res) => {
+  res.render("createUser", {
+    title: "Create User"
+  });
+}

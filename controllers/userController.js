@@ -1,4 +1,4 @@
-import { getUsers } from "../storages/userStorage.js"; 
+import { getUsers, addUser } from "../storages/userStorage.js"; 
 
 export const userListGet = (req, res) => {
   const users = getUsers();
@@ -13,4 +13,12 @@ export const usersCreateGet = (req, res) => {
   res.render("createUser", {
     title: "Create User"
   });
+}
+
+export const usersCreatePost = (req, res) => {
+  const { firstName, lastName } = req.body;
+
+  addUser({ firstName, lastName });
+
+  res.redirect("/");
 }

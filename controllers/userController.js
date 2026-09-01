@@ -22,3 +22,22 @@ export const usersCreatePost = (req, res) => {
 
   res.redirect("/");
 }
+
+export const usersSearchGet = (req, res) => {
+  const { name, email } = req.query;
+
+  const users = getUsers();
+
+  const searchResults = users.filter(user => {
+    const nameMatch = !name || `${user.firstName} ${user.lastName}`.toLowerCase().includes(name.toLowerCase());
+    const emailMatch = !email || user.email.toLowerCase().includes(email.toLowerCase());
+    return nameMatch && emailMatch;
+  });
+
+  res.render("search", {
+    title: "Search Results",
+    users: searchResults,
+    name,
+    email,
+  });
+}
